@@ -1,4 +1,4 @@
-#(©)CodeXBotz
+
 
 import os
 import logging
@@ -16,11 +16,17 @@ APP_ID = int(os.environ.get("APP_ID", ""))
 #Your API Hash from my.telegram.org
 API_HASH = os.environ.get("API_HASH", "")
 
-#Your db channel Id
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
+# Your db channel ID
+try:
+    CHANNEL_ID = int(os.environ.get("CHANNEL_ID"))
+    print(f"[DEBUG] Loaded CHANNEL_ID = {CHANNEL_ID}")
+except (ValueError, TypeError):
+    raise ValueError("❌ Invalid or missing CHANNEL_ID in environment. Please check your .env file or deployment variables.")
 
-#OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+try:
+    OWNER_ID = int(os.environ.get("OWNER_ID"))
+except (ValueError, TypeError):
+    raise ValueError("❌ Invalid or missing OWNER_ID in environment.")
 
 #Port
 PORT = os.environ.get("PORT", "8080")
