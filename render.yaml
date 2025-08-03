@@ -1,0 +1,23 @@
+
+services:
+  - type: web
+    name: echoflex-tv-file-share-bot
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: "python3 bot.py"
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: DB_CHANNEL
+        sync: false
+      - key: FORCE_SUB_CHANNEL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
